@@ -1,0 +1,17 @@
+
+### 1. Successful payment lookup — expect 200
+GET http://localhost:8080/api/payments/1001
+Accept: application/json
+
+
+### 2. Payment not found — expect 404
+GET http://localhost:8080/api/payments/9999
+Accept: application/json
+
+### 3. Duplicate payment — expect 409
+POST http://localhost:8080/api/payments/1001
+Accept: application/json
+
+### 4. Unexpected exception — expect 500
+GET http://localhost:8080/api/payments/test-error
+Accept: application/json
